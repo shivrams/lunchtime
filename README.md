@@ -1,2 +1,2 @@
 # lunchtime
-A slack bot to help your team order lunch online
+A slack bot to create and manage team lunch orders
