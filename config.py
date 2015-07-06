@@ -5,7 +5,7 @@ from os import environ
 
 
 class Config(object):
-    '''
+    ''' Class to wrap around config variables
     '''
     def __init__(self):
         ''' Parse os.environ and set all members
