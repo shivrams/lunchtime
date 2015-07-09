@@ -13,6 +13,7 @@ class Config(object):
             format as the variable names below, but prefixed by LUNCHTIME_
         '''
         self.ALLOWED_SLACK_ROOMS = ['lunch', 'lunch-test']
+        self.CHERRYPY_PORT = 9999
         self.SLACK_REQUEST_TOKEN = ''
         self.INCOMING_WEBOOK_URL = ''
         for name, value in environ.iteritems():

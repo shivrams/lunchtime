@@ -281,4 +281,5 @@ class LunchTime(object):
 
 if __name__ == '__main__':
     command_handler = LunchTimeCommandHandler()
+    cherrypy.config.update({'server.socket_port': conf.CHERRYPY_PORT})
     cherrypy.quickstart(LunchTime(command_handler))
