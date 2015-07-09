@@ -257,7 +257,7 @@ class LunchTime(object):
             invalid_request = True
 
         channel_name = kwargs.get('channel_name')
-        if channel_name != 'lunch':
+        if channel_name not in conf.ALLOWED_SLACK_ROOMS:
             # Only works in the lunch channel
             invalid_request = True
 
