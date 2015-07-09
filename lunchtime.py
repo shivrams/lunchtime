@@ -279,7 +279,19 @@ class LunchTime(object):
             )
         return response
 
+    @staticmethod
+    def plain_text_error_page(status, message, traceback, version):
+        ''' Used for plain text error page
+        '''
+        cherrypy.response.headers['content-type'] = 'text/plain'
+        return message
+
 if __name__ == '__main__':
     command_handler = LunchTimeCommandHandler()
-    cherrypy.config.update({'server.socket_port': conf.CHERRYPY_PORT})
+    cherrypy.config.update({
+        'server.socket_port': conf.CHERRYPY_PORT,
+        'error_page.403': LunchTime.plain_text_error_page,
+        'tools.response_headers.on': True,
+        'tools.response_headers.headers': [('Content-Type', 'text/plain')],
+    })
     cherrypy.quickstart(LunchTime(command_handler))
